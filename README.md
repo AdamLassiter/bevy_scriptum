@@ -3,7 +3,6 @@
 ![demo](demo.gif)
 
 bevy_scriptum is a a plugin for [Bevy](https://bevyengine.org/) that allows you to write some of your game or application logic in a scripting language.
-
 ### Supported scripting languages/runtimes
 
 | language/runtime                           | cargo feature | documentation chapter                                           |
@@ -17,7 +16,6 @@ Documentation book is available [here](https://jarkonik.github.io/bevy_scriptum/
 Full API docs are available at [docs.rs](https://docs.rs/bevy_scriptum/latest/bevy_scriptum/) 🧑‍💻
 
 bevy_scriptum's main advantages include:
-
 - low-boilerplate
 - easy to use
 - asynchronicity with a promise-based API
@@ -27,7 +25,6 @@ bevy_scriptum's main advantages include:
 Scripts are separate files that can be hot-reloaded at runtime. This allows you to quickly iterate on your game or application logic without having to recompile it.
 
 All you need to do is register callbacks on your Bevy app like this:
-
 ```rust
 use bevy::prelude::*;
 use bevy_scriptum::prelude::*;
@@ -42,9 +39,7 @@ App::new()
     })
     .run();
 ```
-
 And you can call them in your scripts like this:
-
 ```lua
 hello_bevy()
 ```
@@ -75,7 +70,6 @@ App::new()
 ```
 
 You can also pass arguments to your callback functions, just like you would in a regular Bevy system - using `In` structs with tuples:
-
 ```rust
 use bevy::prelude::*;
 use bevy_scriptum::prelude::*;
@@ -93,9 +87,7 @@ App::new()
     })
     .run();
 ```
-
 which you can then call in your script like this:
-
 ```lua
 fun_with_string_param("Hello world!")
 ```
@@ -169,14 +161,12 @@ You can also try running provided examples by cloning this repository and runnin
 ```bash
 cargo run --example hello_world_lua
 ```
-
 The examples live in `examples` directory and their corresponding scripts live in `assets/examples` directory within the repository.
 
 ### Bevy compatibility
 
 | bevy version | bevy_scriptum version |
 |--------------|-----------------------|
-| 0.17         | 0.10                  |
 | 0.16         | 0.8-0.9               |
 | 0.15         | 0.7                   |
 | 0.14         | 0.6                   |
@@ -194,7 +184,6 @@ get_player_name():and_then(function(name)
     print(name)
 end)
 ```
-
 which will print out `John` when used with following exposed function:
 
 ```rust
@@ -215,7 +204,6 @@ A variable called `entity` is automatically available to all scripts - it repres
 It exposes `index` property that returns bevy entity index.
 It is useful for accessing entity's components from scripts.
 It can be used in the following way:
-
 ```lua
 print("Current entity index: " .. entity.index)
 ```
@@ -229,4 +217,4 @@ Contributions are welcome! Feel free to open an issue or submit a pull request.
 ### License
 
 bevy_scriptum is licensed under either of the following, at your option:
-Apache License, Version 2.0, (LICENSE-APACHE or <http://www.apache.org/licenses/LICENSE-2.0>) or MIT license (LICENSE-MIT or <http://opensource.org/licenses/MIT>)
+Apache License, Version 2.0, (LICENSE-APACHE or http://www.apache.org/licenses/LICENSE-2.0) or MIT license (LICENSE-MIT or http://opensource.org/licenses/MIT)
