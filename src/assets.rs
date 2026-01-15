@@ -2,10 +2,12 @@ use std::marker::PhantomData;
 
 use bevy::{
     asset::{io::Reader, Asset, AssetLoader, LoadContext},
+    reflect::TypePath,
     tasks::ConditionalSendFuture,
 };
 
 /// A loader for script assets.
+#[derive(TypePath)]
 pub struct ScriptLoader<A: Asset + From<String>> {
     _phantom_data: PhantomData<A>,
 }
